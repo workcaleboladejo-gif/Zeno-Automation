@@ -1,0 +1,17 @@
+name: Test Automation
+
+on:
+  workflow_dispatch:   # lets you run it manually from GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create folder and test message
+        run: |
+          mkdir -p scripts/output
+          echo "GitHub Actions is working!" > scripts/output/test.txt
+          cat scripts/output/test.txt
